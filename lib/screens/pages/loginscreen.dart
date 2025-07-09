@@ -1,21 +1,26 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_pocket_wallet/screens/home_page.dart';
-// import 'signgin.dart';
-// import 'forgotpassword.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  bool _showSuccessMessage = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade900, // Deep banking blue
+      backgroundColor: Colors.blue.shade900,
       appBar: AppBar(
         backgroundColor: Colors.blue.shade900,
         elevation: 0,
@@ -97,7 +102,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
 
-                //Login Button
+                // Login Button
                 ElevatedButton(
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
@@ -106,12 +111,15 @@ class LoginPage extends StatelessWidget {
                           email: emailController.text.trim(),
                           password: passwordController.text.trim(),
                         );
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const HomePage(),
-                          ),
-                        );
+
+                        setState(() {
+                          _showSuccessMessage = true;
+                        });
+
+                        await Future.delayed(const Duration(milliseconds: 500));
+
+                        Navigator.of(context)
+                            .push(_customPageRoute(const HomePage()));
                       } on FirebaseAuthException catch (e) {
                         String errorMessage;
                         if (e.code == 'user-not-found') {
@@ -121,9 +129,9 @@ class LoginPage extends StatelessWidget {
                         } else {
                           errorMessage = 'An error occurred. Please try again.';
                         }
-                        ScaffoldMessenger.of(
-                          context,
-                        ).showSnackBar(SnackBar(content: Text(errorMessage)));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(errorMessage)),
+                        );
                       }
                     }
                   },
@@ -141,15 +149,25 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 15),
 
+                // Animated Success Message
+                AnimatedOpacity(
+                  duration: const Duration(milliseconds: 500),
+                  opacity: _showSuccessMessage ? 1.0 : 0.0,
+                  child: const Text(
+                    'Login successful!',
+                    style: TextStyle(
+                      color: Colors.greenAccent,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+
                 // Forgot Password
                 TextButton(
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => ForgotPasswordPage(),
-                    //   ),
-                    // );
+                    // Navigate to ForgotPasswordPage
                   },
                   child: const Text(
                     'Forgot Password?',
@@ -160,12 +178,7 @@ class LoginPage extends StatelessWidget {
                 // Sign Up
                 TextButton(
                   onPressed: () {
-                    //Navigator.push(
-                    // context,
-                    // MaterialPageRoute(
-                    // builder: (context) => const SignUpPage(),
-                    //),
-                    //  );
+                    // Navigate to SignUpPage
                   },
                   child: const Text(
                     'Don’t have an account? Sign Up',
@@ -177,6 +190,27 @@ class LoginPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  // Custom slide transition
+  Route _customPageRoute(Widget page) {
+    return PageRouteBuilder(
+      transitionDuration: const Duration(milliseconds: 500),
+      pageBuilder: (_, __, ___) => page,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(0.0, 1.0); // Slide from bottom
+        const end = Offset.zero;
+        const curve = Curves.ease;
+
+        final tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
     );
   }
 }

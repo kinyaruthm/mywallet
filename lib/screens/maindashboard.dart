@@ -1,5 +1,8 @@
 // Importing necessary packages and files.
 import 'package:flutter/material.dart'; // Flutter's material design package for UI components.
+import 'package:my_pocket_wallet/screens/pages/sendmoney.dart'; // Importing the SendMoneyPage for navigation.
+import 'package:my_pocket_wallet/screens/pages/paybills.dart';
+import 'package:my_pocket_wallet/screens/pages/withdraw.dart';
 
 // DashboardPage widget represents the main dashboard screen of the app.
 class DashboardPage extends StatelessWidget {
@@ -82,62 +85,69 @@ Widget _accountBalance() {
   );
 }
 
-// Row to center the buttons horizontally.
-// Widget _paymentType(BuildContext context) {
-//   return Column(
-//     mainAxisAlignment: MainAxisAlignment.center, // Centers buttons horizontally.
-//     children: [
-//       // Send Money Button.
-//       ElevatedButton(
-//         onPressed: () {
-//           // Navigates to the SendMoneyPage when pressed.
-//           Navigator.push(
-//             context,
-//             MaterialPageRoute(builder: (context) => const SendMoneyPage()),
-//           );
-//         },
-//         style: ElevatedButton.styleFrom(
-//           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Padding inside the button.
-//           textStyle: const TextStyle(fontSize: 18), // Text style for the button.
-//         ),
-//         child: const Text('Send Money'), // Button label.
-//       ),
+//Row to center the buttons horizontally.
+Widget _paymentType(BuildContext context) {
+  return Column(
+    mainAxisAlignment:
+        MainAxisAlignment.center, // Centers buttons horizontally.
+    children: [
+      // Send Money Button.
+      ElevatedButton(
+        onPressed: () {
+          // Navigates to the SendMoneyPage when pressed.
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SendMoneyPage()),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(
+              vertical: 15, horizontal: 30), // Padding inside the button.
+          textStyle:
+              const TextStyle(fontSize: 18), // Text style for the button.
+        ),
+        child: const Text('Send Money'), // Button label.
+      ),
 
-//       const SizedBox(height: 20), // Adds space between the buttons.
+      const SizedBox(height: 20), // Adds space between the buttons.
 
-//       // Pay Bills Button.
-//       ElevatedButton(
-//         onPressed: () {
-//           // Navigates to the PayBillsPage when pressed.
-//           Navigator.push(
-//             context,
-//             MaterialPageRoute(builder: (context) => const PayBillsPage()),
-//           );
-//         },
-//         style: ElevatedButton.styleFrom(
-//           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Padding inside the button.
-//           textStyle: const TextStyle(fontSize: 18), // Text style for the button.
-//         ),
-//         child: const Text('Pay Bills'), // Button label.
-//       ),
+      // Pay Bills Button.
+      ElevatedButton(
+        onPressed: () {
+          // Navigates to the PayBillsPage when pressed.
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const PayTheBillPage()),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(
+              vertical: 15, horizontal: 30), // Padding inside the button.
+          textStyle:
+              const TextStyle(fontSize: 18), // Text style for the button.
+        ),
+        child: const Text('Pay Bills'), // Button label.
+      ),
 
-//       const SizedBox(height: 20), // Adds space between the buttons.
+      const SizedBox(height: 20), // Adds space between the buttons.
 
-//       // Withdraw Button.
-//       ElevatedButton(
-//         onPressed: () {
-//           // Navigates to the WithdrawScreen when pressed.
-//           Navigator.push(
-//             context,
-//             MaterialPageRoute(builder: (context) => const WithdrawScreen()),
-//           );
-//         },
-//         style: ElevatedButton.styleFrom(
-//           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Padding inside the button.
-//           textStyle: const TextStyle(fontSize: 18), // Text style for the button.
-//         ),
-//         child: const Text('Withdraw'), // Button label.
-//       ),
-//     ],
-//   );
-// }
+      // Withdraw Button.
+      ElevatedButton(
+        onPressed: () {
+          // Navigates to the WithdrawScreen when pressed.
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const WithdrawPage()),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(
+              vertical: 15, horizontal: 30), // Padding inside the button.
+          textStyle:
+              const TextStyle(fontSize: 18), // Text style for the button.
+        ),
+        child: const Text('Withdraw'), // Button label.
+      ),
+    ],
+  );
+}
