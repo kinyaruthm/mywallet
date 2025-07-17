@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:my_pocket_wallet/screens/pages/add_acard.dart';
+import 'package:my_pocket_wallet/screens/pages/add_acard.dart';
 
 class AccountAndCardPage extends StatefulWidget {
   const AccountAndCardPage({super.key});
@@ -32,7 +32,7 @@ class _AccountAndCardPageState extends State<AccountAndCardPage> {
             const SizedBox(height: 20),
             _buildAdditionalInfoSection(),
             const Spacer(),
-            // _buildAddCardButton(context),
+            _buildAddCardButton(context),
           ],
         ),
       ),
@@ -156,33 +156,33 @@ class _AccountAndCardPageState extends State<AccountAndCardPage> {
     );
   }
 
-  // Widget _buildAddCardButton(BuildContext context) {
-  //   return SizedBox(
-  //     width: double.infinity,
-  //     height: 55, // Same button size as TransferPage
-  //     child: ElevatedButton(
-  //       style: ElevatedButton.styleFrom(
-  //         backgroundColor:
-  //             Colors.orangeAccent, // Matches TransferPage button color
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(12), // Same rounded corners
-  //         ),
-  //       ),
-  //       onPressed: () {
-  //         Navigator.push(
-  //           context,
-  //           MaterialPageRoute(builder: (context) => const AddAcard()),
-  //         );
-  //       },
-  //       child: const Text(
-  //         'Add Card',
-  //         style: TextStyle(
-  //           fontSize: 18,
-  //           fontWeight: FontWeight.bold,
-  //           color: Colors.black, // Maintains contrast
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
+  Widget _buildAddCardButton(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: 55, // Same button size as TransferPage
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor:
+              Colors.orangeAccent, // Matches TransferPage button color
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12), // Same rounded corners
+          ),
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AddAcard()),
+          );
+        },
+        child: const Text(
+          'Add Card',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.black, // Maintains contrast
+          ),
+        ),
+      ),
+    );
+  }
 }

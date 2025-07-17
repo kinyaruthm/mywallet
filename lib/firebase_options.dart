@@ -23,10 +23,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
@@ -44,37 +41,51 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBcrHh-3zo9SD05GCEJU6RqDGk6_duGHMA',
-    appId: '1:1096895368613:web:3cb585b2e46f90b06c6c4c',
-    messagingSenderId: '1096895368613',
-    projectId: 'mywallet-78fb6',
-    authDomain: 'mywallet-78fb6.firebaseapp.com',
-    storageBucket: 'mywallet-78fb6.firebasestorage.app',
+    apiKey: "AIzaSyBXeny09PvkNlHriLBEfUbkla_sqCkvcnQ",
+    authDomain: "mywallet-becce.firebaseapp.com",
+    projectId: "mywallet-becce",
+    storageBucket: "mywallet-becce.firebasestorage.app",
+    messagingSenderId: "1042834635095",
+    appId: "1:1042834635095:web:3e2c56fe3a1ac63295a612",
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDz8uP9IJk2Pb3j5RLMhIep5I2bhkXbKxA',
-    appId: '1:1096895368613:android:723d4e45698f487c6c6c4c',
-    messagingSenderId: '1096895368613',
-    projectId: 'mywallet-78fb6',
-    storageBucket: 'mywallet-78fb6.firebasestorage.app',
+    apiKey: 'AIzaSyCT5q-JsTeZqVgwLDTc5CbiatQjndDkwkU',
+    appId: '1:1042834635095:android:26664acbc8c7444795a612',
+    messagingSenderId: '1042834635095',
+    projectId: 'mywallet-becce',
+    storageBucket: 'mywallet-becce.firebasestorage.app',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyCR4396fIqZP9xGJlEsQpjJrPmh8KZX3AM',
+    appId: '1:1042834635095:ios:88d89617630b21db95a612',
+    messagingSenderId: '1042834635095',
+    projectId: 'mywallet-becce',
+    storageBucket: 'mywallet-becce.firebasestorage.app',
+    iosClientId:
+        '1042834635095-mmqj80hq5i6kvvilnkd91b3eshd442mo.apps.googleusercontent.com',
+    iosBundleId: 'com.example.mywallet',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyB8MWge30bd9pzOSDu51-5byqWHu1JBi78',
-    appId: '1:1096895368613:ios:026c11e36d730bce6c6c4c',
-    messagingSenderId: '1096895368613',
-    projectId: 'mywallet-78fb6',
-    storageBucket: 'mywallet-78fb6.firebasestorage.app',
-    iosBundleId: 'com.example.myPocketWallet',
+    apiKey: 'AIzaSyCR4396fIqZP9xGJlEsQpjJrPmh8KZX3AM',
+    appId: '1:1042834635095:ios:88d89617630b21db95a612',
+    messagingSenderId: '1042834635095',
+    projectId: 'mywallet-becce',
+    storageBucket: 'mywallet-becce.firebasestorage.app',
+    iosClientId:
+        '1042834635095-mmqj80hq5i6kvvilnkd91b3eshd442mo.apps.googleusercontent.com',
+    iosBundleId: 'com.example.mywallet',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBcrHh-3zo9SD05GCEJU6RqDGk6_duGHMA',
-    appId: '1:1096895368613:web:8d171bac69e802536c6c4c',
-    messagingSenderId: '1096895368613',
-    projectId: 'mywallet-78fb6',
-    authDomain: 'mywallet-78fb6.firebaseapp.com',
-    storageBucket: 'mywallet-78fb6.firebasestorage.app',
+    apiKey: 'AIzaSyBXeny09PvkNlHriLBEfUbkla_sqCkvcnQ',
+    appId: '1:1042834635095:web:529200eab819bed095a612',
+    messagingSenderId: '1042834635095',
+    projectId: 'mywallet-becce',
+    authDomain: 'mywallet-becce.firebaseapp.com',
+    storageBucket: 'mywallet-becce.firebasestorage.app',
+    measurementId: 'G-CZB7C36GPM',
   );
 }

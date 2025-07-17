@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1042834635095",
+    "project_id": "mywallet-becce",
+    "storage_bucket": "mywallet-becce.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042834635095:android:26664acbc8c7444795a612",
+        "android_client_info": {
+          "package_name": "com.example.mywallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1042834635095-qbednpitnksm48kbl5620erh8guq1mbc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT5q-JsTeZqVgwLDTc5CbiatQjndDkwkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1042834635095-qbednpitnksm48kbl5620erh8guq1mbc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1042834635095-mmqj80hq5i6kvvilnkd91b3eshd442mo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mywallet"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
